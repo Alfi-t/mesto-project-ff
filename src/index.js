@@ -10,14 +10,17 @@ console.log(initialCards);
 const placesList = document.querySelector(".places__list"); 
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card"); 
 
-// Элементы модального окна редактирования профиля
+// Элементы модальных окон, вынесенные в константы
 const editPopup = document.querySelector('.popup_type_edit'); 
+const newCardPopup = document.querySelector('.popup_type_new-card'); 
+const imagePopup = document.querySelector('.popup_type_image'); 
+
+// Поля для ввода в форме редактирования профиля
 const nameInput = editPopup.querySelector('.popup__input_type_name'); 
 const descriptionInput = editPopup.querySelector('.popup__input_type_description'); 
 const formElement = editPopup.querySelector('.popup__form'); 
 
-// Элементы модального окна добавления новой карточки
-const newCardPopup = document.querySelector('.popup_type_new-card'); 
+// Поля для ввода в форме добавления новой карточки
 const newCardForm = newCardPopup.querySelector('.popup__form'); 
 const placeNameInput = newCardForm.querySelector('.popup__input_type_card-name'); 
 const linkInput = newCardForm.querySelector('.popup__input_type_url'); 
@@ -28,18 +31,9 @@ const profileDescription = document.querySelector('.profile__description');
 const editButton = document.querySelector('.profile__edit-button'); 
 const addButton = document.querySelector('.profile__add-button'); 
 
-// Функция обработки клика по изображению
-function handleImageClick(cardData) {
-  const popupImage = document.querySelector('.popup__image'); 
-  const popupCaption = document.querySelector('.popup__caption'); 
-
-  popupImage.src = cardData.link; 
-  popupImage.alt = cardData.name; 
-  popupCaption.textContent = cardData.name; 
-
-  const imagePopup = document.querySelector('.popup_type_image'); 
-  openModal(imagePopup); 
-}
+// Элементы для попапа изображения
+const popupImage = imagePopup.querySelector('.popup__image'); 
+const popupCaption = imagePopup.querySelector('.popup__caption'); 
 
 // Добавляем карточки на страницу 
 initialCards.forEach((cardData) => { 
@@ -68,6 +62,14 @@ function handleFormSubmit(evt) {
 } 
 
 formElement.addEventListener('submit', handleFormSubmit); 
+
+// Функция обработки клика по изображению
+function handleImageClick(cardData) {
+  popupImage.src = cardData.link; 
+  popupImage.alt = cardData.name; 
+  popupCaption.textContent = cardData.name; 
+  openModal(imagePopup); 
+}
 
 // Функция открытия попапа для добавления новой карточки 
 function openAddCardPopup() { 
@@ -103,4 +105,4 @@ closeButtons.forEach((button) => {
 const popups = document.querySelectorAll('.popup'); 
 popups.forEach((popup) => { 
   popup.addEventListener('click', closePopupOnOverlayClick); 
-}); 
+});
