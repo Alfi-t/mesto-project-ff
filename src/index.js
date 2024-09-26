@@ -1,7 +1,7 @@
-import { initialCards } from '../scripts/cards.js'; // Импорт массива карточек 
-import './index.css'; // Импорт стилей 
-import { createCard, deleteCard } from './components/card.js'; // Импорт функций для работы с карточками 
-import { openModal, closeModal, closePopupOnOverlayClick } from './components/modal.js'; // Импорт функций для работы с попапами 
+import { initialCards } from '../src/scripts/cards'; // Импорт массива карточек
+import '../src/index.css'; // Импорт стилей
+import { createCard, deleteCard } from '../src/components/card.js'; // Импорт функций для работы с карточками 
+import { openModal, closeModal, closePopupOnOverlayClick } from '../src/components/modal.js'; // Импорт функций для работы с попапами 
 
 // Проверка, что данные успешно импортированы 
 console.log(initialCards); 

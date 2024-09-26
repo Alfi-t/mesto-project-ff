@@ -14,26 +14,28 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
-    static: path.resolve(__dirname, './dist'),
+    static: path.resolve(__dirname, 'dist'),
     open: true,
     compress: true,
     port: 8080
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      use: 'babel-loader',
-      exclude: '/node_modules/'
-    },
-    // добавили правило для обработки файлов
-    {
-      // регулярное выражение, которое ищет все файлы с такими расширениями
-      test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
-      type: 'asset/resource'
-    },
+    rules: [
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        // регулярное выражение для поиска изображений, шрифтов и других ресурсов
+        test: /\.(png|svg|jpg|jpeg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: 'asset/resource'
+      },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, {
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
             loader: 'css-loader',
             options: {
               importLoaders: 1
@@ -41,7 +43,7 @@ module.exports = {
           },
           'postcss-loader'
         ]
-      },
+      }
     ]
   },
   plugins: [
@@ -49,6 +51,6 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
+    })
   ]
 }
