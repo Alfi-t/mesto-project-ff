@@ -25,6 +25,10 @@ import {
   editAvatar,
 } from './components/api.js';
 
+// Глобальная переменная
+let profileOwner = null; // Глобальная переменная для хранения информации о профиле
+
+
 // Элементы для открытия попапов
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');

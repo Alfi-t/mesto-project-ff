@@ -28,7 +28,6 @@ function setEventListeners(formElement, validationConfig) {
     validationConfig.submitButtonSelector
   );
 
-  // Устанавливаем начальное состояние кнопки
   toggleButtonState(inputList, buttonElement, validationConfig);
 
   inputList.forEach((inputElement) => {
@@ -87,8 +86,8 @@ function showInputError(
   formElement,
   inputElement,
   errorMessage,
-  validationConfig
-) {
+  validationConfig) 
+{
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(validationConfig.inputErrorClass);
   errorElement.textContent = errorMessage;

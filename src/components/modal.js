@@ -14,5 +14,3 @@ function closeModalbyEsc(event) {
     closeModal(popup);
   }
 }
-
-  

@@ -3,14 +3,14 @@
   height: 50px;
   border-radius: 2px;
   margin-left: auto;
-  background: transparent url(../../../images/button-add.svg) center center / 22px no-repeat;
-  transition: all .2s linear;
+  background: transparent url(/src/images/button-add.svg) center center / 22px no-repeat;
+  transition: all 0.2s linear;
   outline: none;
   border: 2px solid #fff;
 }
 
 .profile__button-add:hover {
-  opacity: .6;
+  opacity: 0.6;
   cursor: pointer;
 }
 

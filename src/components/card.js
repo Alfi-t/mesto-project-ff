@@ -1,6 +1,5 @@
 import { addLikeById, deleteCardById, removeLikeById } from './api';
 
-
 export function deleteCard(cardId, cardElement) {
   deleteCardById(cardId)
     .then((res) => {
@@ -10,7 +9,6 @@ export function deleteCard(cardId, cardElement) {
       console.log(err);
     });
 }
-
 
 export function likeCard(cardId, buttonLike) {
   const card = buttonLike.closest('.places__item');
@@ -40,7 +38,6 @@ function updateLike(spanLike, card) {
   spanLike.textContent = card.likes.length > 0 ? card.likes.length : '';
 }
 
-
 export function createCard(cardInfo, profileOwner) {
   const cardTemplate = document.querySelector('#card-template').content;
   const cardElement = cardTemplate
@@ -62,7 +59,6 @@ export function createCard(cardInfo, profileOwner) {
     );
   } else {buttonDelete.remove()}
   
-
   const buttonLike = cardElement.querySelector('.card__like-button');
   buttonLike.addEventListener('click', () =>
     cardInfo.likeCard(cardInfo.card._id, buttonLike)
